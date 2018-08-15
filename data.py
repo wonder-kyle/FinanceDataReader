@@ -3,8 +3,12 @@ from FinanceDataReader.nasdaq.listing import (NasdaqStockListing)
 from FinanceDataReader.krx.listing import (KrxStockListing)
 from FinanceDataReader.wikipedia.listing import (WikipediaStockListing)
 
-def DataReader(symbol, start=None, end=None, country=None):
+def PriceReader(symbol, start=None, end=None, country=None):
     return InvestingDailyReader(symbols=symbol, start=start, end=end, country=country).read()
+
+def SheetReader(symbol):
+    return None
+
 
 def StockListing(market):
     market = market.upper()
