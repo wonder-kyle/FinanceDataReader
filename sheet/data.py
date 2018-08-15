@@ -1,21 +1,17 @@
-
 # coding: utf-8
-
-# In[61]:
-
 
 import pandas as pd
 import requests
 import yaml
 
 class FinanceSheetCrawler:
-    def __init__(self, symbol, sheet_typ=None, freq_typ=None):
+    def __init__(self, symbols, sheet_typ=None, freq_typ=None):
         '''
         * symbol: 종목코드
         * fin_type: 재무제표 종류 (0: 손익계산서, 1: 재무상태표, 2: 현금흐름표)
         * freq_type: 기간 (y:년, q:분기)
         '''
-        self.symbol = symbol
+        self.symbol = symbols
         
         if sheet_typ == 'ALL': self.sheet_typ = -1
         elif sheet_typ == 'IS': self.sheet_typ = 0
@@ -68,4 +64,3 @@ class FinanceSheetCrawler:
     
             return df
         
-

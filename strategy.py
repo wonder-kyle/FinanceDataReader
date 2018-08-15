@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from FinanceDataReader.investing.data import (InvestingDailyReader)
 from FinanceDataReader.nasdaq.listing import (NasdaqStockListing)
 from FinanceDataReader.krx.listing import (KrxStockListing)
@@ -21,3 +23,10 @@ def StockListing(market):
     else:
         msg = "market=%s is not implemented" % market
         raise NotImplementedError(msg)
+
+class strategy:
+    def __init__(self, market):
+        self.market = market
+        
+    def get_score():
+        return None
