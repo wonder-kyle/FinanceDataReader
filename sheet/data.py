@@ -1,9 +1,7 @@
-# coding: utf-8
-
+﻿# coding: utf-8
 import pandas as pd
 import requests
 import yaml
-
 class FinanceSheetCrawler:
     def __init__(self, symbols, sheet_typ=None, freq_typ=None):
         '''
@@ -33,6 +31,7 @@ class FinanceSheetCrawler:
                 self.set_sheet_typ(i)
                 df=pd.concat([df,self.read()],axis=0)
             return df
+        
         else:
             data = {    
                     'cmp_cd':self.symbol,
@@ -40,7 +39,6 @@ class FinanceSheetCrawler:
                     'finGubun': 'IFRSL',
                     'frqTyp': self.freq_typ
             }
-
             try:
                 f=requests.get(url, data).text   
                 yamled_f=yaml.load(f)
