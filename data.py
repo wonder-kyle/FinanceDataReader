@@ -1,6 +1,7 @@
 from FinanceDataReader.investing.data import (InvestingDailyReader)
 from FinanceDataReader.nasdaq.listing import (NasdaqStockListing)
 from FinanceDataReader.krx.listing import (KrxStockListing)
+from FinanceDataReader.krx.PriceCrossSectionReader import (PriceCrossSection)
 from FinanceDataReader.wikipedia.listing import (WikipediaStockListing)
 
 def DataReader(symbol, start=None, end=None, country=None):
@@ -17,3 +18,6 @@ def StockListing(market):
     else:
         msg = "market=%s is not implemented" % market
         raise NotImplementedError(msg)
+        
+def PriceCrossSectionReader(date=None):
+    return PriceCrossSection(date=None).read()
